@@ -12,14 +12,17 @@ def isValid(s: str) -> bool:
         "{": "}",
         "[": "]"
     }
-
+    k = 0
     for i in s:
         if i in valid.keys(): # (['(', '{', '['])
             stack.append(valid[i])
+            print(k, stack)
         elif len(stack) == 0 or stack[-1] != i:
             return False
         else:
             stack.pop()
+            print(k, stack)
+        k+=1
     return len(stack) == 0
 
 ex = "{[]}"
